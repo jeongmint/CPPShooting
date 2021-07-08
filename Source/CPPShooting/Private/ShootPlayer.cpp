@@ -15,7 +15,10 @@ AShootPlayer::AShootPlayer()
 void AShootPlayer::BeginPlay()
 {
 	Super::BeginPlay();
-	UE_LOG(Shoot, Warning, TEXT("%s"), TEXT("BeginPlay"));
+
+	int32 a = Multiply(1 + 2, 1 + 1);
+
+	UE_LOG(Shoot, Warning, TEXT("%d"), a);
 }
 
 // Called every frame

@@ -7,3 +7,5 @@
 
 // Log Category 추가하고 싶다.
 DECLARE_LOG_CATEGORY_EXTERN(Shoot, Log, All);
+
+#define Multiply(x, y) ((x)*(y)) // 매크로 추가
