@@ -1,12 +1,15 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-
 #include "CPPShootingGameModeBase.h"
 
+int ACPPShootingGameModeBase::a = 10;
 
 ACPPShootingGameModeBase::ACPPShootingGameModeBase() // 어디서 구현을 할 것인지 ::로 소속을 표시해 준다.
 {
-	int32 a = 10;
+
+	ACPPShootingGameModeBase::a = 20;
+
+	int32 ab = 10;
 	float f = 2.05f;
 	bool b = true;
 	int c = (b == true) ? 10 : 100;
