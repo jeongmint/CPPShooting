@@ -15,5 +15,4 @@ class CPPSHOOTING_API ACPPShootingGameModeBase : public AGameModeBase
 	
 public:
 	ACPPShootingGameModeBase();
-	static int a;
 };
