@@ -10,7 +10,7 @@
  * 
  */
 UCLASS()
-class CPPSHOOTING_API ACPPShootingGameModeBase : public AGameModeBase
+class CPPSHOOTING_API ACPPShootingGameModeBase : public AGameModeBase // Alt+G 키로 어디서 선언되었는지 알 수 있음
 {
 	GENERATED_BODY()
 	
