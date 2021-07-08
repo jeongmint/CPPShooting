@@ -6,26 +6,24 @@ int ACPPShootingGameModeBase::a = 10;
 
 ACPPShootingGameModeBase::ACPPShootingGameModeBase() // 어디서 구현을 할 것인지 ::로 소속을 표시해 준다.
 {
+	TArray<int> arr;
+	arr.Add(10);
+	arr.Add(195);
+	arr.Add(11);
 
-	ACPPShootingGameModeBase::a = 20;
+	arr.RemoveAt(0);
 
-	int32 ab = 10;
-	float f = 2.05f;
-	bool b = true;
-	int c = (b == true) ? 10 : 100;
+	int size = arr.Num();	// arr 배열의 size를 세는 함수
 
-	FString str1 = TEXT("Brad"); //FString(조작 가능, 대소문자구분x) 연산자 오버로딩 기능, 포인터의 포인터로 전달, 2차원 배열
-	FString str2 = TEXT("Brad") + FString("ho"); 	// 내부적으로 연산자가 작용 // + TEXT는 불가
-	str1.Append(TEXT("hoho"));
+	for (int i = 0; i < size; i++)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("%d"), arr[i]);
+	}
 
-
-	FString itos = FString::FromInt(10);
-	FString ftos = FString::SanitizeFloat(2.0f);
-	// 여러 형식의 문자열을 묶어서 하나의 문자열로 만들고 싶을 때
-
-	FString msg = FString::Printf(TEXT("%s"), *str1);
-
-	UE_LOG(LogTemp, Warning, TEXT("%s"), *msg);
+	for (int value : arr)		// arr에 있는 요소들을 value로 하나씩 받아온다.
+	{
+		UE_LOG(LogTemp, Warning, TEXT("%d"), value);
+	}
 
 }
 
