@@ -2,12 +2,16 @@
 
 #include "ShootPlayer.h"
 #include "CPPShooting.h"
+#include "PlayerMove.h"
 
 // Sets default values
 AShootPlayer::AShootPlayer()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	// Actor 를 이루는 컴포넌트를 붙이도록 한다.(Add Component 초록색 버튼과 같은 역할)
+	playerMove = CreateDefaultSubobject<UPlayerMove>(TEXT("PlayerMove"));
 
 }
 
@@ -31,5 +35,6 @@ void AShootPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	// PlayerMove 컴포넌트의 SetupPlayer 함수를 호출하고 싶다.
 }
 

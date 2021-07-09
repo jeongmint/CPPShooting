@@ -30,10 +30,15 @@ void UPlayerMove::TickComponent(float DeltaTime, ELevelTick TickType, FActorComp
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
+	void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
 	// ...
 		// 사용자 입력에 따라 상하좌우로 이동하고 싶다.
 	// 1. 방향이 필요
-	FVector dir = FVector::RightVector;
+	// FVector dir = FVector::RightVector;
+	
+	FVector dir = FVector(0, h, v);
+
 	// 2. 이동하고 싶다.
 	// P = P0 + vt
 	// 방법 1 ) AActor* me = GetOwner(); // Component를 소유하고 있는 Actor를 반환
@@ -50,3 +55,16 @@ void UPlayerMove::TickComponent(float DeltaTime, ELevelTick TickType, FActorComp
 	}
 }
 
+void UPlayerMove::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
+{
+	PlayerInputComponent->BindAxis(TEXT("Horizontal"), this, &UPlayerMove::Horizontal);
+	PlayerInputComponent->BindAxis(TEXT("Vertical"), this, &UPlayerMove::Vertical);
+}
+
+void UPlayerMove::Horizontal(float value) {
+	h = value;
+}
+
+void UPlayerMove::Vertical(float value) {
+	v = value;
+}
