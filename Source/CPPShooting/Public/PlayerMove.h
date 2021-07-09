@@ -25,27 +25,18 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-	// 사용자 입력에 따라 상하좌우로 이동하고 싶다.
-	// 1. 방향이 필요
-	FVector dir = FVector::RightVector;
-	// 2. 이동하고 싶다.
-	// P = P0 + vt
-	// 방법 1 ) AActor* me = GetOwner(); // Component를 소유하고 있는 Actor를 반환
-	// 방법 2)
-	AShootPlayer* me = Cast<AShootPlayer> GetOwner();
-	// 명시적 형변환을 해서 뜬금없는 값이 들어가지 않도록 한다.
-
-	if (me)
-	{
-		FVector P0 = me->GetActorLocation();
-		FVector P = P0 + dir * speed * DeltaTime;
-		me->SetActorLocation(P);
-		//me->SetActorLocation();
-	}
 
 public:
 	// 필요속성 : 이동속도
+	// UPROPERTY는 매크로 함수이므로 인자를 넣을 수 있음
+	// EditAnywhere 어디서든 수정 가능
+	// VisibleAnyWhere 보기만 가능
+	UPROPERTY(EditAnywhere, Category = "Setting", BlueprintReadOnly)
 	float speed = 500;
-		
+
+private :
+	UPROPERTY()
+	class AShootPlayer* me; // class 전방선언을 하게 되면 없더라도 있는 줄 알고 인식을 하게 된다.
+	// 힙이라는 메모리 공간에 올라가기 때문에
+	// UPROPERTY의 사용, 스마트 포인터를 사용해서 메모리를 동적으로 해제시켜 줘야 함
 };
