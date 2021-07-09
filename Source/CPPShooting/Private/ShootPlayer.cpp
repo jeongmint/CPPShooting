@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "ShootPlayer.h"
+#include "CPPShooting.h"
 
 // Sets default values
 AShootPlayer::AShootPlayer()
@@ -15,9 +16,7 @@ void AShootPlayer::BeginPlay()
 {
 	Super::BeginPlay();
 
-	int32 a = Multiply(1 + 2, 1 + 1);
-
-	UE_LOG(Shoot, Warning, TEXT("%d"), a);
+	PRINTLOG(TEXT("%s"), TEXT("Hello World"));
 }
 
 // Called every frame
