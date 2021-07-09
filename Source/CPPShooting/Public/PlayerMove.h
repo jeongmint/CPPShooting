@@ -36,6 +36,14 @@ public:
 	AShootPlayer* me = Cast<AShootPlayer> GetOwner();
 	// 명시적 형변환을 해서 뜬금없는 값이 들어가지 않도록 한다.
 
+	if (me)
+	{
+		FVector P0 = me->GetActorLocation();
+		FVector P = P0 + dir * speed * DeltaTime;
+		me->SetActorLocation(P);
+		//me->SetActorLocation();
+	}
+
 public:
 	// 필요속성 : 이동속도
 	float speed = 500;
