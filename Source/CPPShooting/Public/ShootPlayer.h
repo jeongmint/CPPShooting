@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "CPPShooting.h"
 #include "GameFramework/Pawn.h"
 #include "ShootPlayer.generated.h"
 

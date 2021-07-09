@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "ShootPlayer.h"
 
 // Log Category 추가하고 싶다.
 DECLARE_LOG_CATEGORY_EXTERN(Shoot, Log, All);
